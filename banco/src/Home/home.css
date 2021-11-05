@@ -42,7 +42,7 @@ input[type='file']{
 }
 
 .upload{
-    background-color:  rgb(2, 190, 59);
+    background-color: rgb(18, 85, 230);
     width: 150px;
     height: 50px;
     justify-content: center;
@@ -67,6 +67,20 @@ input[type='file']{
     gap: 10px;
 }
 
+.btnEnviar{
+    height: 50px;
+    width: 80px;
+    margin-top: 30px;
+    border: transparent;
+    
+    background-color:  rgb(2, 190, 59);
+    color: #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
+.btnEnviar:hover{
+    background-color: rgb(68, 117, 223);
+}
 
 

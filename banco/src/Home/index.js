@@ -8,7 +8,7 @@ export default function Home() {
     const [cpf, setCpf] = useState();
 
     function handleCpf(e) {
-        setCpf(cpfMask( e.target.value ))
+        setCpf(cpfMask(e.target.value))
     }
 
     const handleUploadFile = (e) => {
@@ -38,7 +38,7 @@ export default function Home() {
         <div className="containerHome">
             <h1 className="title">Documentação do CNAB</h1>
             <div className="formOrg">
-                <form className="form">
+                <form className="form" onSubmit={() => { }}>
                     <label className="labelInput">Tipo de Transação</label>
                     <input type="text" className="input" placeholder="Tipo de Transação" autoFocus />
 
@@ -68,9 +68,9 @@ export default function Home() {
                         <input onChange={handleUploadFile} id="labelInput" type="file" accept="application/txt" />
                         {file.info}
                     </div>
+                    <button type='submit' className="btnEnviar">Enviar</button>
                 </form>
             </div>
-
         </div>
     )
 }
