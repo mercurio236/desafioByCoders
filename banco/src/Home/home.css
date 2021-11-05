@@ -9,6 +9,10 @@
     display: flex;
 }
 
+.title{
+    text-align: center;
+}
+
 .form{
    flex-direction: column;
    display: flex;
@@ -57,6 +61,11 @@ input[type='file']{
     position: relative;
 }
 
+.uploadContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 
 
