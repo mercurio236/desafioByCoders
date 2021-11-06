@@ -65,6 +65,7 @@ input[type='file']{
     display: flex;
     align-items: center;
     gap: 10px;
+
 }
 
 .btnEnviar{
@@ -72,15 +73,78 @@ input[type='file']{
     width: 80px;
     margin-top: 30px;
     border: transparent;
-    
     background-color:  rgb(2, 190, 59);
     color: #FFF;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 10px;
+    
 }
 
 .btnEnviar:hover{
     background-color: rgb(68, 117, 223);
 }
 
+.infoFile{
+   display: flex;
+   flex-direction: column;
+   border-style: solid;
+   border-color: rgb(153, 152, 152);
+   margin-bottom: 10px;
+   padding: 10px;
+   border-radius: 10px;
+   margin-top: 10px;
+   width: 40%;
+   margin-left: 28%;
+}
+
+.labelFile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btnForm{
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.btnSeeFile{
+    width: 100px;
+    height: 50px;
+    border: transparent;
+    color: #FFF;
+    background-color: rgb(16, 185, 44);
+    border-radius: 10px;
+    margin: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnSeeFile:hover{
+    width: 110px;
+    height: 52px;
+    background-color: rgb(73, 206, 95);
+}
+
+.btnClose{
+    height: 50px;
+    width: 100px;
+    color: #FFF;
+    border: transparent;
+    background-color: rgb(207, 74, 74);
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 66%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btnClose:hover{
+    background-color: rgb(226, 79, 79);
+}
 

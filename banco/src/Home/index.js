@@ -6,32 +6,33 @@ import { cpfMask } from "../components/CPFMask/cpfmask";
 export default function Home() {
     const [file, setFile] = useState([]);
     const [cpf, setCpf] = useState();
+    const [nameFiles, setNameFiles] = useState([])
+    const [seeData, setSeeData] = useState(false)
 
     function handleCpf(e) {
         setCpf(cpfMask(e.target.value))
     }
 
     const handleUploadFile = (e) => {
-        //setFile(files);
         var reader = new FileReader();
         const files = e.target.files[0];
         reader.readAsText(files)
         reader.onload = function (event) {
             let fileContent = event.target.result;
             const allLines = fileContent.split(/\r \n | \n/);
-            //setFile(allLines)
-            console.log(files)
-
-            allLines.forEach((line, indx) => {
-                console.log(`current-line ${line} line-index ${indx}`)
-                setFile({
-                    texto: line,
-                    index: indx,
-                    info: files.name
-                })
-            })
+            setFile(allLines)
+            setNameFiles(files)
+            console.log(allLines)
         }
+    }
 
+    function handleSeeData(e) {
+        e.preventDefault();
+        setSeeData(true)
+    }
+    function handleCloseData(e) {
+        e.preventDefault();
+        setSeeData(false)
     }
 
     return (
@@ -49,7 +50,7 @@ export default function Home() {
                     <input type="number" className="input" placeholder="Tipo de Transação" />
 
                     <label className="labelInput">CPF do beneficiario</label>
-                    <input name="cpf" value={cpf} onChange={handleCpf} className="input" placeholder="Tipo de Transação" maxLength="14" />
+                    <input value={cpf} onChange={handleCpf} className="input" placeholder="Tipo de Transação" maxLength="14" />
 
                     <label className="labelInput">Cartão utilizado na transação</label>
                     <input type="number" className="input" placeholder="Tipo de Transação" />
@@ -66,11 +67,40 @@ export default function Home() {
                     <div className='uploadContainer'>
                         <label className="upload" for="labelInput">Arquivo CNAB</label>
                         <input onChange={handleUploadFile} id="labelInput" type="file" accept="application/txt" />
-                        {file.info}
+                        {nameFiles.name}
                     </div>
-                    <button type='submit' className="btnEnviar">Enviar</button>
+                    <div className="btnForm">
+                        <button onClick={(e) => e.preventDefault()} className="btnEnviar">Enviar</button>
+                        <button onClick={handleSeeData} className="btnSeeFile">Exibir doc</button>
+                    </div>
                 </form>
             </div>
+            {
+                seeData === true ?(
+                    <button className="btnClose" onClick={handleCloseData}>Fechar</button>
+                ) : ''
+            }
+            {
+                seeData === true ? (    
+                    file.map((texto, id) => (
+                            <div key={id} className="infoFile">
+                                <div className="labelFile">
+                                    <label>File: {String(texto).substring(0, 34)}</label>
+                                    <label>Endereço: {String(texto).substring(38, 48)}</label>
+                                    <label>Nome: {String(texto).substring(48, 81)}</label>
+                                    <label>Protocolo: {String(texto).substring(81, 115)}</label>
+                                    <label>Resto: {String(texto).substring(119, 129)}</label>
+                                    <label>Comercio: {String(texto).substring(129, 162)}</label>
+                                    <label>Numero: {String(texto).substring(162, 196)}</label>
+                                    <label>Numero: {String(texto).substring(200, 210)}</label>
+                                    <label>Comercio: {String(texto).substring(210, 243)}</label>
+                                    <br />
+                                </div>
+                            </div>
+                    ))
+                ) : <> </>
+            }
+
         </div>
     )
 }
