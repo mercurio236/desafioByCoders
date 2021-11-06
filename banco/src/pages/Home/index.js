@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './home.css';
-import { cpfMask } from "../components/CPFMask/cpfmask";
+import { cpfMask } from "../../components/CPFMask/cpfmask";
 
 
 export default function Home() {

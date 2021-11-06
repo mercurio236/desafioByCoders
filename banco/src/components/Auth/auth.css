@@ -1,0 +1,9 @@
+.btnLogin{
+    background-color:  rgb(2, 190, 59);
+    border: transparent;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 20px;
+}
